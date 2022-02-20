@@ -1,0 +1,139 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Walls.gd" type="Script" id=2]
+[ext_resource path="res://Images/magma.jpg" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 160 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -16, -359, 16, -359, 16, -40, -16, -40 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 40 )
+
+[node name="Wallnode" type="Node2D"]
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="UpperWallSprite" type="Sprite" parent="Walls"]
+position = Vector2( 0, -345 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite2" type="Sprite" parent="Walls"]
+position = Vector2( 0, -313 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite3" type="Sprite" parent="Walls"]
+position = Vector2( 0, -281 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite4" type="Sprite" parent="Walls"]
+position = Vector2( 0, -249 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite5" type="Sprite" parent="Walls"]
+position = Vector2( 0, -217 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite6" type="Sprite" parent="Walls"]
+position = Vector2( 0, -185 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite7" type="Sprite" parent="Walls"]
+position = Vector2( 0, -153 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite8" type="Sprite" parent="Walls"]
+position = Vector2( 0, -121 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite9" type="Sprite" parent="Walls"]
+position = Vector2( 0, -89 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite10" type="Sprite" parent="Walls"]
+position = Vector2( 0, -57 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite11" type="Sprite" parent="Walls"]
+position = Vector2( 0.0550003, 56.055 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite12" type="Sprite" parent="Walls"]
+position = Vector2( 0.0550003, 88.055 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite13" type="Sprite" parent="Walls"]
+position = Vector2( 0.0550003, 120.055 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite14" type="Sprite" parent="Walls"]
+position = Vector2( 0.0550003, 152.055 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite15" type="Sprite" parent="Walls"]
+position = Vector2( 0.0550003, 184.055 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite16" type="Sprite" parent="Walls"]
+position = Vector2( 0.0550003, 216.055 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite17" type="Sprite" parent="Walls"]
+position = Vector2( 0.0550003, 248.055 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite18" type="Sprite" parent="Walls"]
+position = Vector2( 0.0550003, 280.055 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite19" type="Sprite" parent="Walls"]
+position = Vector2( 0.0550003, 312.055 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallSprite20" type="Sprite" parent="Walls"]
+position = Vector2( 0.0550003, 344.055 )
+scale = Vector2( 0.095, 0.095 )
+texture = ExtResource( 3 )
+
+[node name="UpperWallCollision" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 0, -200 )
+shape = SubResource( 1 )
+
+[node name="UpperLightOccluder" type="LightOccluder2D" parent="Walls"]
+position = Vector2( 0, -1 )
+occluder = SubResource( 2 )
+
+[node name="LowerWallCollision2" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 0, 200 )
+shape = SubResource( 1 )
+
+[node name="LowerLightOccluder2" type="LightOccluder2D" parent="Walls"]
+position = Vector2( 0, 400 )
+occluder = SubResource( 2 )
+
+[node name="PointArea" type="Area2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/PointArea"]
+shape = SubResource( 3 )

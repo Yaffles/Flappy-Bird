@@ -1,0 +1,187 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/background/scroll_bg_sky.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/background/scroll_bg_cloud_1.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/background/scroll_bg_cloud_2.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/background/scroll_bg_cloud_3.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/background/scroll_bg_fg_2.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/background/scroll_bg_fg_1.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/background/ParallaxBg.gd" type="Script" id=7]
+
+[node name="ParallaxBg" type="ParallaxBackground"]
+scroll_base_scale = Vector2( 0.7, 0 )
+script = ExtResource( 7 )
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Sprite" type="Sprite" parent="Sky"]
+scale = Vector2( 1000, 2 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -15, 0 )
+
+[node name="Clouds" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 800, 100 )
+
+[node name="Sprite1" type="Sprite" parent="Clouds"]
+position = Vector2( 14, 64 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Clouds"]
+position = Vector2( 202, 12 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="Clouds"]
+position = Vector2( 77, 23 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite4" type="Sprite" parent="Clouds"]
+position = Vector2( 272, 65 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite5" type="Sprite" parent="Clouds"]
+position = Vector2( 127, 79 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="Clouds"]
+position = Vector2( 337, 35 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Sprite7" type="Sprite" parent="Clouds"]
+position = Vector2( 428.25, 64 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite8" type="Sprite" parent="Clouds"]
+position = Vector2( 616.25, 12 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite9" type="Sprite" parent="Clouds"]
+position = Vector2( 491.25, 23 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite10" type="Sprite" parent="Clouds"]
+position = Vector2( 686.25, 65 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite11" type="Sprite" parent="Clouds"]
+position = Vector2( 541.25, 79 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Sprite12" type="Sprite" parent="Clouds"]
+position = Vector2( 751.25, 35 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Mount2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 1 )
+
+[node name="Sprite" type="Sprite" parent="Mount2"]
+position = Vector2( 0, 300 )
+texture = ExtResource( 5 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite2" type="Sprite" parent="Mount2"]
+position = Vector2( 391.165, 300 )
+texture = ExtResource( 5 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite7" type="Sprite" parent="Mount2"]
+position = Vector2( -775.696, 300 )
+texture = ExtResource( 5 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite8" type="Sprite" parent="Mount2"]
+position = Vector2( -384.531, 300 )
+texture = ExtResource( 5 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite3" type="Sprite" parent="Mount2"]
+position = Vector2( 783.25, 300 )
+texture = ExtResource( 5 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite4" type="Sprite" parent="Mount2"]
+position = Vector2( 1174.41, 300 )
+texture = ExtResource( 5 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite5" type="Sprite" parent="Mount2"]
+position = Vector2( 1564.6, 300 )
+texture = ExtResource( 5 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite6" type="Sprite" parent="Mount2"]
+position = Vector2( 1955.77, 300 )
+texture = ExtResource( 5 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Mount1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.4, 1 )
+
+[node name="Sprite" type="Sprite" parent="Mount1"]
+position = Vector2( 14, 300 )
+texture = ExtResource( 6 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite2" type="Sprite" parent="Mount1"]
+position = Vector2( 428.25, 300 )
+texture = ExtResource( 6 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite7" type="Sprite" parent="Mount1"]
+position = Vector2( -797.759, 300 )
+texture = ExtResource( 6 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite8" type="Sprite" parent="Mount1"]
+position = Vector2( -383.509, 300 )
+texture = ExtResource( 6 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite3" type="Sprite" parent="Mount1"]
+position = Vector2( 830.788, 300 )
+texture = ExtResource( 6 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite4" type="Sprite" parent="Mount1"]
+position = Vector2( 1224.41, 300 )
+texture = ExtResource( 6 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite5" type="Sprite" parent="Mount1"]
+position = Vector2( 1638.66, 300 )
+texture = ExtResource( 6 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )
+
+[node name="Sprite6" type="Sprite" parent="Mount1"]
+position = Vector2( 2041.2, 300 )
+texture = ExtResource( 6 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 128 )

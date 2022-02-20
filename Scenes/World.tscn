@@ -1,0 +1,387 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Fonts/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Images/light.jpg" type="Texture" id=2]
+[ext_resource path="res://Images/Bird/red_bird.png" type="Texture" id=3]
+[ext_resource path="res://Audio/point.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/hit.wav" type="AudioStream" id=5]
+[ext_resource path="res://Images/Bird/bird2.png" type="Texture" id=6]
+[ext_resource path="res://Images/White.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Wallnode.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Floor.gd" type="Script" id=11]
+[ext_resource path="res://Images/Bird/default2.png" type="Texture" id=12]
+[ext_resource path="res://Images/Bird/Green.png" type="Texture" id=13]
+[ext_resource path="res://Images/Bird/Red.png" type="Texture" id=14]
+[ext_resource path="res://Images/Bird/Blue.png" type="Texture" id=15]
+[ext_resource path="res://Images/Bird/Pink.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/background/ParallaxBg.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Images/Bird/Rabbit.png" type="Texture" id=18]
+[ext_resource path="res://Images/Sun.png" type="Texture" id=19]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/Floor.png-443e93c22d4083ab606c2b1fdb1e2320.stex"
+
+[node name="World" type="Node2D"]
+position = Vector2( -1, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="CurrentScore" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = -15.0
+margin_top = -220.0
+margin_right = 32.0
+margin_bottom = -183.0
+rect_scale = Vector2( 3, 3 )
+custom_colors/default_color = Color( 0.843137, 0.670588, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentScore2" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+margin_left = -15.0
+margin_top = -220.0
+margin_right = 32.0
+margin_bottom = -183.0
+rect_scale = Vector2( 3, 3 )
+custom_colors/default_color = Color( 0.843137, 0.670588, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerNode" type="Node2D" parent="."]
+
+[node name="Player" type="KinematicBody2D" parent="PlayerNode"]
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerNode/Player"]
+position = Vector2( -5, 7 )
+polygon = PoolVector2Array( 0.858612, -17.1739, 10.902, -17.1505, 10.9488, -15.5117, 12.611, -15.4649, 12.611, -13.7325, 14.2966, -13.6857, 14.3434, -12.1171, 15.9587, -12.164, 16.0056, -6.99011, 17.6443, -7.03694, 17.7146, -5.32793, 19.3768, -5.30452, 19.3768, -3.5721, 17.6209, -3.61892, 17.7146, 1.46128, 9.19295, 1.55492, 9.28721, 3.12346, 2.498, 3.14687, 2.47459, 1.46128, -0.849777, 1.48469, -0.826366, -0.1775, -2.53537, -0.271143, -2.51196, -1.90992, -6.00021, -1.88651, -5.90656, -3.66575, -7.61557, -3.66575, -7.6858, -5.2577, -9.32458, -5.30452, -9.30117, -10.3145, -7.63898, -10.3613, -7.61557, -12.0469, -4.24438, -12.0937, -4.19756, -13.6389, -2.5822, -13.7559, -2.65243, -15.3479, 0.835817, -15.2776 )
+
+[node name="Sprite" type="Sprite" parent="PlayerNode/Player"]
+visible = false
+scale = Vector2( 0.06, 0.06 )
+z_index = 2
+texture = ExtResource( 3 )
+
+[node name="Yellow" type="Sprite" parent="PlayerNode/Player"]
+visible = false
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 12 )
+
+[node name="Green" type="Sprite" parent="PlayerNode/Player"]
+visible = false
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 13 )
+
+[node name="Red" type="Sprite" parent="PlayerNode/Player"]
+visible = false
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 14 )
+
+[node name="Blue" type="Sprite" parent="PlayerNode/Player"]
+visible = false
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 15 )
+
+[node name="Pink" type="Sprite" parent="PlayerNode/Player"]
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 16 )
+
+[node name="Rabbit" type="Sprite" parent="PlayerNode/Player"]
+visible = false
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 18 )
+
+[node name="Detect" type="Area2D" parent="PlayerNode/Player"]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PlayerNode/Player/Detect"]
+position = Vector2( -5, 7 )
+polygon = PoolVector2Array( 0.862381, -17.5651, 11.2174, -17.4273, 11.178, -15.6358, 12.8513, -15.754, 12.9694, -13.9035, 14.6034, -13.9428, 14.7412, -12.3089, 16.2964, -12.3285, 16.3555, -7.19043, 17.891, -7.05263, 17.7146, -5.32793, 19.3768, -5.30452, 19.3768, -3.5721, 17.6209, -3.61892, 17.7146, 1.46128, 9.19295, 1.55492, 9.28721, 3.12346, 2.498, 3.14687, 2.47459, 1.46128, -0.849777, 1.48469, -0.826366, -0.1775, -2.53537, -0.271143, -2.51196, -1.90992, -6.00021, -1.88651, -5.90656, -3.66575, -7.61557, -3.66575, -7.6858, -5.2577, -9.32458, -5.30452, -9.30117, -10.3145, -7.95707, -10.4977, -8.09487, -12.3482, -4.6104, -12.2695, -4.4726, -13.9625, -2.95675, -14.0413, -2.68115, -15.8327, 0.724577, -15.7146 )
+
+[node name="Resetter" type="Area2D" parent="PlayerNode/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerNode/Player/Resetter"]
+position = Vector2( -475, 0 )
+scale = Vector2( 0.637032, 16.5327 )
+shape = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="PlayerNode/Player"]
+visible = false
+texture = ExtResource( 2 )
+texture_scale = 20.0
+energy = 0.8
+range_z_min = -2
+range_z_max = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_filter = 3
+shadow_filter_smooth = 8.0
+
+[node name="soundPoint" type="AudioStreamPlayer2D" parent="PlayerNode/Player"]
+stream = ExtResource( 4 )
+volume_db = -20.0
+
+[node name="soundHit" type="AudioStreamPlayer2D" parent="PlayerNode/Player"]
+stream = ExtResource( 5 )
+
+[node name="Player2" type="KinematicBody2D" parent="PlayerNode"]
+visible = false
+position = Vector2( -48.0128, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerNode/Player2"]
+position = Vector2( -5, 7 )
+polygon = PoolVector2Array( 0.858612, -17.1739, 10.902, -17.1505, 10.9488, -15.5117, 12.611, -15.4649, 12.611, -13.7325, 14.2966, -13.6857, 14.3434, -12.1171, 15.9587, -12.164, 16.0056, -6.99011, 17.6443, -7.03694, 17.7146, -5.32793, 19.3768, -5.30452, 19.3768, -3.5721, 17.6209, -3.61892, 17.7146, 1.46128, 9.19295, 1.55492, 9.28721, 3.12346, 2.498, 3.14687, 2.47459, 1.46128, -0.849777, 1.48469, -0.826366, -0.1775, -2.53537, -0.271143, -2.51196, -1.90992, -6.00021, -1.88651, -5.90656, -3.66575, -7.61557, -3.66575, -7.6858, -5.2577, -9.32458, -5.30452, -9.30117, -10.3145, -7.63898, -10.3613, -7.61557, -12.0469, -4.24438, -12.0937, -4.19756, -13.6389, -2.5822, -13.7559, -2.65243, -15.3479, 0.835817, -15.2776 )
+
+[node name="Sprite" type="Sprite" parent="PlayerNode/Player2"]
+visible = false
+scale = Vector2( 0.06, 0.06 )
+z_index = 2
+texture = ExtResource( 3 )
+
+[node name="Yellow" type="Sprite" parent="PlayerNode/Player2"]
+visible = false
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 12 )
+
+[node name="Green" type="Sprite" parent="PlayerNode/Player2"]
+visible = false
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 13 )
+
+[node name="Red" type="Sprite" parent="PlayerNode/Player2"]
+visible = false
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 14 )
+
+[node name="Blue" type="Sprite" parent="PlayerNode/Player2"]
+visible = false
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 15 )
+
+[node name="Pink" type="Sprite" parent="PlayerNode/Player2"]
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 16 )
+
+[node name="Rabbit" type="Sprite" parent="PlayerNode/Player2"]
+visible = false
+scale = Vector2( 0.017, 0.017 )
+z_index = 2
+texture = ExtResource( 18 )
+
+[node name="Detect" type="Area2D" parent="PlayerNode/Player2"]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PlayerNode/Player2/Detect"]
+position = Vector2( -5, 7 )
+polygon = PoolVector2Array( 0.862381, -17.5651, 11.2174, -17.4273, 11.178, -15.6358, 12.8513, -15.754, 12.9694, -13.9035, 14.6034, -13.9428, 14.7412, -12.3089, 16.2964, -12.3285, 16.3555, -7.19043, 17.891, -7.05263, 17.7146, -5.32793, 19.3768, -5.30452, 19.3768, -3.5721, 17.6209, -3.61892, 17.7146, 1.46128, 9.19295, 1.55492, 9.28721, 3.12346, 2.498, 3.14687, 2.47459, 1.46128, -0.849777, 1.48469, -0.826366, -0.1775, -2.53537, -0.271143, -2.51196, -1.90992, -6.00021, -1.88651, -5.90656, -3.66575, -7.61557, -3.66575, -7.6858, -5.2577, -9.32458, -5.30452, -9.30117, -10.3145, -7.95707, -10.4977, -8.09487, -12.3482, -4.6104, -12.2695, -4.4726, -13.9625, -2.95675, -14.0413, -2.68115, -15.8327, 0.724577, -15.7146 )
+
+[node name="Resetter" type="Area2D" parent="PlayerNode/Player2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerNode/Player2/Resetter"]
+position = Vector2( -475, 0 )
+scale = Vector2( 0.637032, 16.5327 )
+shape = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="PlayerNode/Player2"]
+visible = false
+texture = ExtResource( 2 )
+texture_scale = 20.0
+energy = 0.8
+range_z_min = -2
+range_z_max = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_filter = 3
+shadow_filter_smooth = 8.0
+
+[node name="soundPoint" type="AudioStreamPlayer2D" parent="PlayerNode/Player2"]
+stream = ExtResource( 4 )
+volume_db = -20.0
+
+[node name="soundHit" type="AudioStreamPlayer2D" parent="PlayerNode/Player2"]
+stream = ExtResource( 5 )
+
+[node name="PlayerNode2" type="Node2D" parent="."]
+visible = false
+position = Vector2( -71, -1 )
+
+[node name="Player" type="KinematicBody2D" parent="PlayerNode2"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerNode2/Player"]
+position = Vector2( -5, 7 )
+polygon = PoolVector2Array( 0.858612, -17.1739, 10.902, -17.1505, 10.9488, -15.5117, 12.611, -15.4649, 12.611, -13.7325, 14.2966, -13.6857, 14.3434, -12.1171, 15.9587, -12.164, 16.0056, -6.99011, 17.6443, -7.03694, 17.7146, -5.32793, 19.3768, -5.30452, 19.3768, -3.5721, 17.6209, -3.61892, 17.7146, 1.46128, 9.19295, 1.55492, 9.28721, 3.12346, 2.498, 3.14687, 2.47459, 1.46128, -0.849777, 1.48469, -0.826366, -0.1775, -2.53537, -0.271143, -2.51196, -1.90992, -6.00021, -1.88651, -5.90656, -3.66575, -7.61557, -3.66575, -7.6858, -5.2577, -9.32458, -5.30452, -9.30117, -10.3145, -7.63898, -10.3613, -7.61557, -12.0469, -4.24438, -12.0937, -4.19756, -13.6389, -2.5822, -13.7559, -2.65243, -15.3479, 0.835817, -15.2776 )
+
+[node name="Sprite" type="Sprite" parent="PlayerNode2/Player"]
+scale = Vector2( 0.06, 0.06 )
+texture = ExtResource( 6 )
+
+[node name="Detect" type="Area2D" parent="PlayerNode2/Player"]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PlayerNode2/Player/Detect"]
+visible = false
+position = Vector2( -5, 7 )
+polygon = PoolVector2Array( 0.862381, -17.5651, 11.2174, -17.4273, 11.178, -15.6358, 12.8513, -15.754, 12.9694, -13.9035, 14.6034, -13.9428, 14.7412, -12.3089, 16.2964, -12.3285, 16.3555, -7.19043, 17.891, -7.05263, 17.7146, -5.32793, 19.3768, -5.30452, 19.3768, -3.5721, 17.6209, -3.61892, 17.7146, 1.46128, 9.19295, 1.55492, 9.28721, 3.12346, 2.498, 3.14687, 2.47459, 1.46128, -0.849777, 1.48469, -0.826366, -0.1775, -2.53537, -0.271143, -2.51196, -1.90992, -6.00021, -1.88651, -5.90656, -3.66575, -7.61557, -3.66575, -7.6858, -5.2577, -9.32458, -5.30452, -9.30117, -10.3145, -7.95707, -10.4977, -8.09487, -12.3482, -4.6104, -12.2695, -4.4726, -13.9625, -2.95675, -14.0413, -2.68115, -15.8327, 0.724577, -15.7146 )
+
+[node name="Resetter" type="Area2D" parent="PlayerNode2/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerNode2/Player/Resetter"]
+position = Vector2( -475, 0 )
+scale = Vector2( 0.637032, 16.5327 )
+shape = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="PlayerNode2/Player"]
+texture = ExtResource( 2 )
+texture_scale = 50.0
+energy = 0.0
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_filter = 3
+shadow_filter_smooth = 8.0
+
+[node name="soundPoint" type="AudioStreamPlayer2D" parent="PlayerNode2/Player"]
+stream = ExtResource( 4 )
+volume_db = -20.0
+
+[node name="soundHit" type="AudioStreamPlayer2D" parent="PlayerNode2/Player"]
+stream = ExtResource( 5 )
+
+[node name="Wallnode" parent="." instance=ExtResource( 9 )]
+position = Vector2( 300, 0 )
+
+[node name="Wallnode2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 450, -40 )
+
+[node name="Wallnode3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 600, 48 )
+
+[node name="Wallnode4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 750, 88 )
+
+[node name="Wallnode5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 900, -56 )
+
+[node name="Wallnode6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1050, 100 )
+
+[node name="Floornode" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 11 )
+
+[node name="Floor1" type="Sprite" parent="Floornode"]
+position = Vector2( -195, 145 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+texture = SubResource( 4 )
+
+[node name="Floor3" type="Sprite" parent="Floornode"]
+position = Vector2( 413, 145 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+texture = SubResource( 4 )
+
+[node name="Floor4" type="Sprite" parent="Floornode"]
+position = Vector2( 717, 145 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+texture = SubResource( 4 )
+
+[node name="Floor5" type="Sprite" parent="Floornode"]
+position = Vector2( 1021, 145 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+texture = SubResource( 4 )
+
+[node name="Floor6" type="Sprite" parent="Floornode"]
+position = Vector2( 1325, 145 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+texture = SubResource( 4 )
+
+[node name="Floor7" type="Sprite" parent="Floornode"]
+position = Vector2( 1629, 145 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+texture = SubResource( 4 )
+
+[node name="Floor2" type="Sprite" parent="Floornode"]
+position = Vector2( 109, 145 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+texture = SubResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="ParallaxBg" parent="." instance=ExtResource( 17 )]
+
+[node name="Sun" type="Sprite" parent="."]
+visible = false
+position = Vector2( 190.113, 3.01636 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -3
+texture = ExtResource( 19 )
+
+[node name="SunLight" type="Light2D" parent="."]
+visible = false
+position = Vector2( 190.113, 3.01636 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+texture_scale = 20.0
+energy = 2.0
+range_z_min = -2
+range_z_max = 1
+range_layer_min = -100
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_filter = 3
+shadow_filter_smooth = 3.0
+
+[node name="Background" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0, 0.360784, 0.560784, 1 )
+scale = Vector2( 200, 200 )
+z_index = -4096
+texture = ExtResource( 7 )
+
+[connection signal="area_entered" from="PlayerNode/Player/Detect" to="PlayerNode/Player" method="_on_Detect_area_entered"]
+[connection signal="body_entered" from="PlayerNode/Player/Detect" to="PlayerNode/Player" method="_on_Detect_body_entered"]
+[connection signal="body_entered" from="PlayerNode/Player/Resetter" to="PlayerNode/Player" method="_on_Resetter_body_entered"]
+[connection signal="area_entered" from="PlayerNode/Player2/Detect" to="PlayerNode/Player2" method="_on_Detect_area_entered"]
+[connection signal="body_entered" from="PlayerNode/Player2/Detect" to="PlayerNode/Player2" method="_on_Detect_body_entered"]
+[connection signal="body_entered" from="PlayerNode/Player2/Resetter" to="PlayerNode/Player2" method="_on_Resetter_body_entered"]
+[connection signal="area_entered" from="PlayerNode2/Player/Detect" to="PlayerNode2/Player" method="_on_Detect_area_entered"]
+[connection signal="body_entered" from="PlayerNode2/Player/Detect" to="PlayerNode2/Player" method="_on_Detect_body_entered"]
+[connection signal="body_entered" from="PlayerNode2/Player/Resetter" to="PlayerNode2/Player" method="_on_Resetter_body_entered"]
